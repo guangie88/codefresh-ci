@@ -4,7 +4,7 @@ steps:
     title: Trigger codefresh-go to unit test
     image: codefresh/cli
     commands:
-    - codefresh run codefresh-go-test
+    - codefresh run 5c83929790bbd7bfb7ae2540
     when:
       condition:
         all:
