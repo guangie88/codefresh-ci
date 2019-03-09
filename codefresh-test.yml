@@ -7,15 +7,15 @@ steps:
     stage: test
     image: codefresh/cli
     commands:
-    - codefresh run ${{CF_REPO_OWNER}}/codefresh-go/codefresh-go-test -b master -d
+    - run ${{CF_REPO_OWNER}}/codefresh-go/codefresh-go-test -b master
     # when:
     #   condition:
     #     all:
     #       validateTargetBranch: '"${{CF_PULL_REQUEST_TARGET}}" == "master"'
     #       validatePRAction: '"${{CF_PULL_REQUEST_ACTION}}" == "opened"'
-  trigger_go_again:
-    title: Trigger codefresh-go again to unit test
-    stage: test
-    image: codefresh/cli
-    commands:
-    - codefresh run ${{CF_REPO_OWNER}}/codefresh-go/codefresh-go-test -b master -d
+  # trigger_go_again:
+  #   title: Trigger codefresh-go again to unit test
+  #   stage: test
+  #   image: codefresh/cli
+  #   commands:
+  #   - run ${{CF_REPO_OWNER}}/codefresh-go/codefresh-go-test -b master -d
