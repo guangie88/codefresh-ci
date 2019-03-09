@@ -5,8 +5,8 @@ steps:
     image: codefresh/cli
     commands:
     - codefresh run 5c83929790bbd7bfb7ae2540
-    when:
-      condition:
-        all:
-          validateTargetBranch: '"${{CF_PULL_REQUEST_TARGET}}" == "master"'
-          validatePRAction: '"${{CF_PULL_REQUEST_ACTION}}" == "opened"'
+    # when:
+    #   condition:
+    #     all:
+    #       validateTargetBranch: '"${{CF_PULL_REQUEST_TARGET}}" == "master"'
+    #       validatePRAction: '"${{CF_PULL_REQUEST_ACTION}}" == "opened"'
