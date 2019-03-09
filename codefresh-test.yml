@@ -1,0 +1,12 @@
+version: '1.0'
+steps:
+  trigger_go:
+    title: Trigger codefresh-go to unit test
+    image: codefresh/cli
+    commands:
+    - codefresh run codefresh-go-test
+    when:
+      condition:
+        all:
+          validateTargetBranch: '"${{CF_PULL_REQUEST_TARGET}}" == "master"'
+          validatePRAction: '"${{CF_PULL_REQUEST_ACTION}}" == "opened"'
