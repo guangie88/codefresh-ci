@@ -1,0 +1,19 @@
+# Note: this only works if the number of concurrent jobs is >= 2
+# Otherwise the codefresh run would have to run in detached mode (-d)
+version: '1.0'
+mode: parallel
+stages:
+- test
+steps:
+  trigger_go:
+    title: Trigger codefresh-go to unit test
+    stage: test
+    image: codefresh/cli
+    commands:
+    - codefresh run ${{CF_REPO_OWNER}}/codefresh-go/codefresh-go-test -b master
+  trigger_go_again:
+    title: Trigger codefresh-go again to unit test
+    stage: test
+    image: codefresh/cli
+    commands:
+    - codefresh run ${{CF_REPO_OWNER}}/codefresh-go/codefresh-go-test -b master
