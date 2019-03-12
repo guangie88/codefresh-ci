@@ -12,7 +12,7 @@ steps:
     commands:
     - codefresh run ${{CF_REPO_OWNER}}/codefresh-go/codefresh-go-test -b master
   trigger_python:
-    title: Trigger codefresh-python again to unit test
+    title: Trigger codefresh-python to unit test
     stage: test
     image: codefresh/cli
     commands:
