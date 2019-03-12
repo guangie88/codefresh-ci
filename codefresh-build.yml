@@ -3,26 +3,26 @@
 version: '1.0'
 mode: parallel
 stages:
-- test
+- build
 
 steps:
   trigger_go:
-    title: Trigger codefresh-go to unit test
-    stage: test
+    title: Trigger codefresh-go to perform release build
+    stage: build
     image: codefresh/cli
     commands:
-    - codefresh run ${{CF_REPO_OWNER}}/codefresh-go/codefresh-go-test -b master
+    - codefresh run ${{CF_REPO_OWNER}}/codefresh-go/codefresh-go-build -b master
     when:
       steps:
       - name: main_clone
         on:
         - success
   trigger_python:
-    title: Trigger codefresh-python to unit test
-    stage: test
+    title: Trigger codefresh-python to perform release build
+    stage: build
     image: codefresh/cli
     commands:
-    - codefresh run ${{CF_REPO_OWNER}}/codefresh-python/codefresh-python-test -b master
+    - codefresh run ${{CF_REPO_OWNER}}/codefresh-python/codefresh-python-build -b master
     when:
       steps:
       - name: main_clone
