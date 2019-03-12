@@ -11,9 +11,9 @@ steps:
     image: codefresh/cli
     commands:
     - codefresh run ${{CF_REPO_OWNER}}/codefresh-go/codefresh-go-test -b master
-  trigger_go_again:
-    title: Trigger codefresh-go again to unit test
+  trigger_python:
+    title: Trigger codefresh-python again to unit test
     stage: test
     image: codefresh/cli
     commands:
-    - codefresh run ${{CF_REPO_OWNER}}/codefresh-go/codefresh-go-test -b master
+    - codefresh run ${{CF_REPO_OWNER}}/codefresh-python/codefresh-python-test -b master
